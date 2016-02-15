@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+        <title>OGAPP | Propiedades en Venta y Alquiler</title>
+
+        <link href="css/font-awesome.css" rel="stylesheet">
+        <link href="css/simple-line-icons.css" rel="stylesheet">
+        <link href="css/jquery-ui.css" rel="stylesheet">
+        <link href="css/datepicker.css" rel="stylesheet">
+        <link href="css/bootstrap.css" rel="stylesheet">
+        <link href="css/app-blue.css" rel="stylesheet">
+
+        <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body class="notransition">
+
+        <!-- Header -->
+
+        <div id="header">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="fa fa-home marker"></span>
+                    <span class="logoText">OGAPP</span>
+                </a>
+            </div>
+            <a href="#" class="navHandler"><span class="fa fa-bars"></span></a>
+            <div class="search">
+                <span class="searchIcon icon-magnifier"></span>
+                <input type="text" placeholder="Buscar ciudad, pais..."  id="city" autocomplete="on" >
+				<input type="hidden" id="latitude" value=""/>
+				<input type="hidden" id="longitude" value=""/>
+            </div>
+            <div class="headerUserWraper">
+                <a href="#" class="userHandler dropdown-toggle" data-toggle="dropdown"><span class="icon-user"></span></a>
+                <a href="#" class="headerUser dropdown-toggle" data-toggle="dropdown">
+                    <img class="avatar headerAvatar pull-left" src="images/avatar-1.png" alt="avatar">
+                    <div class="userTop pull-left">
+                        <span class="headerUserName">Anonimo</span> <span class="fa fa-angle-down"></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </a>
+                <div class="dropdown-menu pull-right userMenu" role="menu">
+                    <div class="mobAvatar">
+                        <img class="avatar mobAvatarImg" src="images/avatar-1.png" alt="avatar">
+                        <div class="mobAvatarName">Anonimo</div>
+                    </div>
+                    <ul id="guest_menu">
+                        <!--<li><a href="#"><span class="icon-settings"></span>Configuraciones</a></li>-->
+                        <li><a href="signin.html"><span class="icon-power"></span>Ingresar</a></li>
+                        <li class="divider"></li>
+                        <li><a href="signup.html"><span class="icon-user"></span>Registrarse</a></li>
+                    </ul>
+					<ul id="user_menu">
+                        <!--<li><a href="#"><span class="icon-settings"></span>Configuraciones</a></li>-->
+                        <li><a href="#" id="btn_profile"><span class="icon-user"></span>Perfil</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#" id="btn_logout"><span class="icon-power"></span>Logout</a></li>
+					</ul>
+                </div>
+            </div>
+			<a href="#" class="mapHandler"><span class="icon-map"></span></a>
+			<div class="clearfix"></div>
+		</div>	
+        <!-- Left Side Navigation -->
+        <div id="leftSide">
+            <nav class="leftNav scrollable">
+                <div class="search">
+                    <span class="searchIcon icon-magnifier"></span>
+                    <input type="text" placeholder="Buscar ciudad, pais..." id="city_left_menu">
+                    <div class="clearfix"></div>
+                </div>
+                <ul>
+                    <li><a href="explore.html"><span class="navIcon icon-compass"></span><span class="navLabel">Explorar</span></a></li>
+                    <!--<li><a href="single.html"><span class="navIcon icon-home"></span><span class="navLabel">Detalle</span></a></li>-->
+                    <li><a href="add.html"><span class="navIcon icon-plus"></span><span class="navLabel">Publicar</span></a></li>
+            </nav>
+        </div>
+        <div class="closeLeftSide"></div>
+
+        <!-- Content -->
+
+        <div id="wrapper">
+            <div id="mapView" class="mob-min"><div class="mapPlaceholder"><span class="fa fa-spin fa-spinner"></span> Cargando Mapa...</div></div>
+            <div id="content" class="mob-max">
+                <div class="singleTop">
+                    <div id="carouselFull" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                        </ol>
+                        <div class="carousel-inner">
+                        </div>
+                        <a class="left carousel-control" href="#carouselFull" role="button" data-slide="prev"><span class="fa fa-chevron-left"></span></a>
+                        <a class="right carousel-control" href="#carouselFull" role="button" data-slide="next"><span class="fa fa-chevron-right"></span></a>
+                    </div>
+                    <div class="summary">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+                                <div class="summaryItem">
+                                    <h1 class="pageTitle"></h1>
+                                    <div class="address"><span class="icon-pointer"></span></div>
+                                    <ul class="stats">
+                                        <li><span class="icon-eye"></span>Vistas</li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                    <ul class="features">
+                                        <li><span class="fa fa-moon-o"></span><div id="bedrooms"> Habitaciones</div></li>
+                                        <li><span class="icon-drop"></span><div id="bathrooms"> Baños</div></li>
+                                        <li><span class="icon-frame"></span><div id="area"> m2</div></li>
+                                    </ul>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+                                <div class="agentAvatar summaryItem">
+                                     <div class="clearfix"></div>
+                                    <img class="avatar agentAvatarImg" src="images/avatar-2.png" alt="avatar">
+                                    <div class="agentName"></div>
+									<div class="agentPhone"><li class="fa fa-phone"> </li></div>
+									<div class="agentEmail"><li class="fa fa-envelope"> </li></div>
+                                    <!--<a data-toggle="modal" href="#contactAgent" class="btn btn-lg btn-round btn-green contactBtn">Contactar</a>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="description">
+                    <h3>Descripcion</h3>
+                    <p></p>
+                </div>
+                
+                <div class="amenities">
+                    <h3>Facilidades</h3>
+                    <div class="row" id="amenities">
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-car"></span> Garage</div>
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-tint"></span> Piscina</div>
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-leaf"></span> Jardín</div>
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-shield"></span> Alarma</div>
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-archive"></span> Depósito</div>
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-cutlery"></span> Quincho</div>
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-asterisk"></span> Aire Acondicionado</div>
+                        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4 amItem"><span class="fa fa-user"></span> Area de Servicio</div>
+                        
+                    </div>
+                </div>
+				<div class="share">
+                    <h3>Comparte en las redes sociales</h3>
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 shareItem">
+                            <a href="#" class="btn btn-sm btn-round btn-o btn-facebook"><span class="fa fa-facebook"></span> Facebook</a>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 shareItem">
+                            <a href="#" class="btn btn-sm btn-round btn-o btn-twitter"><span class="fa fa-twitter"></span> Twitter</a>
+                        </div>
+                        <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 shareItem">
+                            <a href="#" class="btn btn-sm btn-round btn-o btn-google"><span class="fa fa-google-plus"></span> Google+</a>
+                        </div>
+                        <!--<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 shareItem">
+                            <a href="#" class="btn btn-sm btn-round btn-o btn-pinterest"><span class="fa fa-pinterest"></span> Pinterest</a>
+                        </div>-->
+                    </div>
+                </div>		
+				<div class="similar">
+				    <h3>Propiedades Sugeridas</h3>
+                    <div class="row" id="listado">				
+					</div>
+				</div>	
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div class="modal fade" id="contactAgent" role="dialog" aria-labelledby="contactLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="contactLabel">Contactar Vendedor</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form class="contactForm">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cfItem">
+                                    <input type="text" placeholder="Nombre" class="form-control">
+                                 </div>
+                                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 cfItem">
+                                    <input type="text" placeholder="Email" class="form-control">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cfItem">
+                                    <input type="text" placeholder="Asunto" class="form-control">
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 cfItem">
+                                    <textarea placeholder="Mensaje" rows="3" class="form-control"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" data-dismiss="modal" class="btn btn-round btn-o btn-gray">Close</a>
+                        <a href="#" class="btn btn-round btn-green">Send</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/jquery-2.1.1.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery-ui-touch-punch.js"></script>
+        <script src="js/jquery.placeholder.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/jquery.touchSwipe.min.js"></script>
+        <script src="js/jquery.slimscroll.min.js"></script>
+        <script src="js/jquery.visible.js"></script>
+        <script src="http://maps.googleapis.com/maps/api/js?sensor=true&amp;libraries=geometry&amp;libraries=places" type="text/javascript"></script>
+        <script src="js/infobox.js"></script>
+        <script src="js/jquery.tagsinput.min.js"></script>
+        <script src="js/bootstrap-datepicker.js"></script>
+		<script src="js/jquery.validate.js"></script>
+		<script src="js/jquery.getUrlParam.js" type="text/javascript"></script>
+		<script src="js/single.js" type="text/javascript"></script>
+		<script src="js/session.js" type="text/javascript"></script>
+    </body>
+</html>
