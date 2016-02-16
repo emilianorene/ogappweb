@@ -631,12 +631,12 @@ function publicar()
 				}
 				else
 				{
-					alert(data.error_msg);
+					//alert(data.error_msg);
 				}
 				
 			},
 			error: function (xhr) {
-				alert("Error al iniciar la sesion: "+xhr);
+				//alert("Error al iniciar la sesion: "+xhr);
 
 			}
 		});
@@ -692,8 +692,8 @@ $(document).ready(function()
                     }
                 },
                 submitHandler: function(form) {
-                    //publicar();
-                    alert("ok");
+                    publicar();
+                    //alert("ok");
                 }
             });
 

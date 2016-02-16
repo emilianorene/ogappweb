@@ -589,7 +589,6 @@ $('#btn_modify').click(function () {
 					celular : $('div.celular').text(),
 					nombre : $('div.pc-name').text(),      
 					email : $('div.email').text(),
-                    password : $('div.password').text(),
                     skype : $('div.skype').text(),
                     facebook : $('div.facebook').text(),
                     twitter : $('div.twitter').text(),
